@@ -1,0 +1,129 @@
+{
+  "Identity": {
+    "PeerID": "QmZSPi6pxRXP43wLWtubc3q3ddmJtrTM4Et5TzwZyFoq4V",
+    "PrivKey": "CAASpwkwggSjAgEAAoIBAQDcARXMgYrlDml8tO/d0fkDcSGRa3BvGAeaWHhL5wV3qYnDXp0SYPdLfGXe3k5c8iDq6LeExyFfTpQ6hWrrurpP29MTfO5/o+V6LUSXzItcRE9N3X7pAya97FhI1JcskEqlHZB3H1SVtY+1qzFKQXm4MPCs75Aoq4BE5zkZUd5LbFf656UeAFlhaFOmFz94HQ+Yls5h49kjwIE8sixff7i7Gb0f81edQr7AzBxLsJdrOnqaNp08gAxnmRsidt0ow6ny74iXwXVkWSMBmZWquzal5+6Pfdm/+o+DPuEoz1XSpteZIz7RofIgGnbEDucCG9nDBV04p1KvWyi6NWjnlQxnAgMBAAECggEALiXgH7SwoNmEEQ+XHQ11UV6CrxE9VWBR//M80JcWE4KxjhSjl/5VATWH3Nb+0wpLE1tbW3O1sVs3RotD4Uya1jODNBxJnuaPNTCXqcvTE7iUdf3XKCNsFfykjCpjx4pAzh/EdOhSgtDB41aUkUHouVUytuPNdmp7Dnj+BiyhF2qv6F8BskGgcI6HIkkwpV7TUxwYnljxc1peDMo30HB71RPnGHfNgC2lfn8NBUci7+UX2ycEYTa9TsMSk/Enq84t/xpT1xEyTJ/IVLCYOFWXVedYvvgp9b/RuUWuaKGVmC39hDGY+5zUhSH+0w+ZlKzg9rI8pJj8iRILwy4eLnnwsQKBgQDjwz6xRaImEqCac934iBth27QvreDGt7QDYF3n67bfC+19p9+Ktrppvv3VZ8M3uX1XQ3xuyBDGUwR89rf1ctxNLZ0a2F6DNW8WyUJzF6gJs1j8x/H4QXnctvTCh2sf9q5LDZcXIBkFxzS3K3zGhLJA0uK8Kv56pBe1bXK4W8GXOQKBgQD3R5oqSq8VHh7v6WxguAm15UTgPsZGKvLlrT9E1MOALODAB7Zt1ZVkcTZnI1B++qTzz2ufeAuPf6H7d9KT0W4ioHss3EAUD3p2zhVOnhDHikeb8ZQYNTpyTrZSIj0nxED+xUF1O4w8SxH1W3tgkFyDQENXkrQp7MlietDHqfkgnwKBgD/nhCuQ8hHkoBM1903IQoaOclv+WVboLCXWYAK2bDTgz921wE7XPi51XBsIZgm4jaZyVPNwRuSeXmABiVPgylcNOUtS8hG2aFjoVzCbrpYqMAmcwBN7q4l1++6ouDHbsMN2KLJgWyT3456RIQ1CJhFyGhPZrFUUvWI2Nz3q4MJhAoGBALdb7MD3aCQslZwoZijBztGGFDCD29oj9sDAWm3bpqvgmzdJgMio24IDQOfxk7rUeIQhhhhVl5zsc1xYWVkqrpQWk7+MAifd4l0+KyaEpsSPkNHdrIbW0WP5YdA9e0OFjvxboFIhubbro4FgOHg+E5tvh3/kVJvR7PKNR0sGiqjZAoGALimB8+8v7vIM2Mwe3/pAMlY2QE9eD1d2Twc+IwNC9ULUsL/4s5be4fRJUmxulHYSpM8GL+xbd6ZwHYA68tNG3VxuGgUwDgta7FQ5VdWuzZZLHYtoj2dNHM8E46k/9WSAiQHONEqyGW064fqz5s087MKYZuGCso5Gre8nlbw4bZk="
+  },
+  "Datastore": {
+    "StorageMax": "10GB",
+    "StorageGCWatermark": 90,
+    "GCPeriod": "1h",
+    "Spec": {
+      "mounts": [
+        {
+          "child": {
+            "path": "blocks",
+            "shardFunc": "/repo/flatfs/shard/v1/next-to-last/2",
+            "sync": true,
+            "type": "flatfs"
+          },
+          "mountpoint": "/blocks",
+          "prefix": "flatfs.datastore",
+          "type": "measure"
+        },
+        {
+          "child": {
+            "compression": "none",
+            "path": "datastore",
+            "type": "levelds"
+          },
+          "mountpoint": "/",
+          "prefix": "leveldb.datastore",
+          "type": "measure"
+        }
+      ],
+      "type": "mount"
+    },
+    "HashOnRead": false,
+    "BloomFilterSize": 0
+  },
+  "Addresses": {
+    "Swarm": [
+      "/ip4/0.0.0.0/tcp/4001",
+      "/ip6/::/tcp/4001"
+    ],
+    "Announce": [],
+    "NoAnnounce": [],
+    "API": "/ip4/127.0.0.1/tcp/5001",
+    "Gateway": "/ip4/127.0.0.1/tcp/8080"
+  },
+  "Mounts": {
+    "IPFS": "/ipfs",
+    "IPNS": "/ipns",
+    "FuseAllowOther": false
+  },
+  "Discovery": {
+    "MDNS": {
+      "Enabled": true,
+      "Interval": 10
+    }
+  },
+  "Routing": {
+    "Type": "dht"
+  },
+  "Ipns": {
+    "RepublishPeriod": "",
+    "RecordLifetime": "",
+    "ResolveCacheSize": 128
+  },
+  "Bootstrap": [
+    "/dnsaddr/bootstrap.libp2p.io/ipfs/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN",
+    "/dnsaddr/bootstrap.libp2p.io/ipfs/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa",
+    "/dnsaddr/bootstrap.libp2p.io/ipfs/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb",
+    "/dnsaddr/bootstrap.libp2p.io/ipfs/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt",
+    "/ip4/104.131.131.82/tcp/4001/ipfs/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ",
+    "/ip4/104.236.179.241/tcp/4001/ipfs/QmSoLPppuBtQSGwKDZT2M73ULpjvfd3aZ6ha4oFGL1KrGM",
+    "/ip4/128.199.219.111/tcp/4001/ipfs/QmSoLSafTMBsPKadTEgaXctDQVcqN88CNLHXMkTNwMKPnu",
+    "/ip4/104.236.76.40/tcp/4001/ipfs/QmSoLV4Bbm51jM9C4gDYZQ9Cy3U6aXMJDAbzgu2fzaDs64",
+    "/ip4/178.62.158.247/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd",
+    "/ip6/2604:a880:1:20::203:d001/tcp/4001/ipfs/QmSoLPppuBtQSGwKDZT2M73ULpjvfd3aZ6ha4oFGL1KrGM",
+    "/ip6/2400:6180:0:d0::151:6001/tcp/4001/ipfs/QmSoLSafTMBsPKadTEgaXctDQVcqN88CNLHXMkTNwMKPnu",
+    "/ip6/2604:a880:800:10::4a:5001/tcp/4001/ipfs/QmSoLV4Bbm51jM9C4gDYZQ9Cy3U6aXMJDAbzgu2fzaDs64",
+    "/ip6/2a03:b0c0:0:1010::23:1001/tcp/4001/ipfs/QmSoLer265NRgSp2LA3dPaeykiS1J6DifTC88f5uVQKNAd"
+  ],
+  "Gateway": {
+    "HTTPHeaders": {
+      "Access-Control-Allow-Headers": [
+        "X-Requested-With",
+        "Range"
+      ],
+      "Access-Control-Allow-Methods": [
+        "GET"
+      ],
+      "Access-Control-Allow-Origin": [
+        "*"
+      ]
+    },
+    "RootRedirect": "",
+    "Writable": false,
+    "PathPrefixes": []
+  },
+  "API": {
+    "HTTPHeaders": {
+      "Server": [
+        "go-ipfs/0.4.15"
+      ]
+    }
+  },
+  "Swarm": {
+    "AddrFilters": null,
+    "DisableBandwidthMetrics": false,
+    "DisableNatPortMap": false,
+    "DisableRelay": false,
+    "EnableRelayHop": false,
+    "ConnMgr": {
+      "Type": "basic",
+      "LowWater": 600,
+      "HighWater": 900,
+      "GracePeriod": "20s"
+    }
+  },
+  "Reprovider": {
+    "Interval": "12h",
+    "Strategy": "all"
+  },
+  "Experimental": {
+    "FilestoreEnabled": false,
+    "ShardingEnabled": false,
+    "Libp2pStreamMounting": false
+  }
+}
